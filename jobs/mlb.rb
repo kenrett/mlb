@@ -1,5 +1,4 @@
 require 'rubygems'
-require 'pry'
 require 'nokogiri'
 require 'open-uri'
 
@@ -15,7 +14,7 @@ SCHEDULER.every '5m', :first_in => 0 do
   by_division = al.split("SRS")
   by_division << nl.split("SRS")
 
-  # Uncomment the division you want to see
+  # Uncomment the division you want to see.
   # At this time you can only view 1 division at a time.
 
 # # AL EAST  
