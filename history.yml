@@ -1,0 +1,19 @@
+---
+mlb: |+
+  data: {"teams":["OAK","TEX","LAA","SEA","HOU"],"wins":["94","85","76","68","51"],"losses":["63","71","80","89","106"],"gb":["--","8.5","17.5","26.0","43.0"],"id":"mlb","updatedAt":1380046090}
+
+convergence: |+
+  data: {"points":[{"x":36,"y":2},{"x":37,"y":25},{"x":38,"y":17},{"x":39,"y":16},{"x":40,"y":9},{"x":41,"y":17},{"x":42,"y":45},{"x":43,"y":29},{"x":44,"y":46},{"x":45,"y":16}],"id":"convergence","updatedAt":1380046158}
+
+buzzwords: |+
+  data: {"items":[{"label":"Leverage","value":3},{"label":"Enterprise","value":5},{"label":"Turn-key","value":5},{"label":"Exit strategy","value":5},{"label":"Pivoting","value":5},{"label":"Streamlininess","value":4},{"label":"Synergy","value":2},{"label":"Web 2.0","value":4},{"label":"Paradigm shift","value":2}],"id":"buzzwords","updatedAt":1380046158}
+
+valuation: |+
+  data: {"current":76,"last":62,"id":"valuation","updatedAt":1380046159}
+
+karma: |+
+  data: {"current":75017,"last":35312,"id":"karma","updatedAt":1380046159}
+
+synergy: |+
+  data: {"value":15,"id":"synergy","updatedAt":1380046159}
+

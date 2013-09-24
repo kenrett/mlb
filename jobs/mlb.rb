@@ -9,44 +9,56 @@ SCHEDULER.every '5m', :first_in => 0 do
 
   al_standings = []
 
-  s = doc.css('#div_AL_standings').text
+  al = doc.css('#div_AL_standings').text
+  nl = doc.css('#div_NL_standings').text
 
-  by_division = s.split("SRS")
+  by_division = al.split("SRS")
+  by_division << nl.split("SRS")
 
-  al_east = by_division[1].split(" ").each_slice(6).to_a
-  # al_cent = by_division[2].split(" ").each_slice(6).to_a
-  # al_west = by_division[3].split(" ").each_slice(6).to_a
+  # Uncomment the division you want to see
+  # At this time you can only view 1 division at a time.
 
-  al_east.each { |r| r.pop }
-  # al_cent.each { |r| r.pop }
-  # al_west.each { |r| r.pop }
+# # AL EAST  
+#   al_east = by_division[1].split(" ").each_slice(6).to_a
+#   al_east.each { |r| r.pop }
+#   al_east.pop
+#   div_strings = al_east.each { |t| t.to_s }
+# # AL CENTRAL
+#   al_cent = by_division[2].split(" ").each_slice(6).to_a
+#   al_cent.each { |r| r.pop }
+#   al_cent.pop
+#   div_strings = al_cent.each { |t| t.to_s }
+# AL WEST
+  al_west = by_division[3].split(" ").each_slice(6).to_a
+  al_west.each { |r| r.pop }
+  # west does not need an extra pop...
+  div_strings = al_west.each { |t| t.to_s }
 
-  al_east.pop
-  # al_cent.pop
+# # NL EAST
+#   nl_east = by_division[4].split(" ").each_slice(6).to_a
+#   nl_east.each { |r| r.pop }
+#   nl_east.pop
+#   div_strings = nl_east.each { |t| t.to_s }
+# # NL CENTRAL
+#   nl_cent = by_division[5].split(" ").each_slice(6).to_a
+#   nl_cent.each { |r| r.pop }
+#   nl_cent.pop
+#   div_strings = nl_cent.each { |t| t.to_s }
+# # NL WEST
+#   nl_west = by_division[6].split(" ").each_slice(6).to_a
+#   nl_west.each { |r| r.pop }
+#   div_strings = nl_west.each { |t| t.to_s }
 
-  al_east_strings = al_east.each { |t| t.to_s }
-
-  # p al_east_strings
-
-  al_divisions = []
-
-  al_divisions = al_east_strings.each { |f| f.delete(f[1]) }
-  # al_divisions << al_cent.each { |f| f.delete(f[1]) }
-  # al_divisions << al_west.each { |f| f.delete(f[1]) }
-  
-  al = al_divisions.transpose
+  divisions = []
+  divisions = div_strings.each { |f| f.delete(f[1]) }
+  team = divisions.transpose
 
   standings = { 
-    :teams => al[0],
-    :wins => al[1],
-    :losses => al[2],
-    :gb => al[3]
+    :teams => team[0],
+    :wins => team[1],
+    :losses => team[2],
+    :gb => team[3]
   }
 
-
-  # p standings[:teams][0]
-  # p standings[:gb][3]
-
   send_event('mlb', standings)
-
 end

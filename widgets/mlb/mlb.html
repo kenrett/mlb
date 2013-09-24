@@ -1,25 +1,33 @@
-<img class="logo" src="http://mlb.mlb.com/images/icons/mlb_logo.gif">
+<img class="mlb-logo" src="http://mlb.mlb.com/images/icons/mlb_logo.gif">
 
-<h1 class="title" data-bind="title"></h1>
+<h1 class="mlb-title" data-bind="title"></h1>
 
-<table class="table">
-  <th>Team</th>
-  <tr data-class="mlb" data-foreach-standings="teams">
-    <td data-bind="standings | raw"></td>
-  </tr>
-  <th>Wins</th>
-  <tr data-class="mlb" data-foreach-standings="wins">
-    <td data-bind="standings | raw"></td>
-  </tr>
-  <th>Losses</th>
-  <tr data-class="mlb" data-foreach-standings="losses">
-    <td data-bind="standings | raw"></td>
-  </tr>
-  <th>GB</th>
-  <tr data-class="mlb" data-foreach-standings="gb">
-    <td data-bind="standings | raw"></td>
-  </tr>
-</table>
+<div id="all_teams">
+  <table>
+    <th class='mlb-th'>Team</th>
+    <tr class='mlb-tr' data-class="mlb" data-foreach-standings="teams">
+      <td class='mlb-td' data-bind="standings | raw"></td>
+    </tr>
+  </table>
+  <table>
+    <th class='mlb-th'>Wins</th>
+    <tr data-class="mlb" data-foreach-standings="wins">
+      <td class='mlb-td' data-bind="standings | raw"></td>
+    </tr>
+  </table>
+  <table>
+    <th class='mlb-th'>Losses</th>
+    <tr data-class="mlb" data-foreach-standings="losses">
+      <td class='mlb-td' data-bind="standings | raw"></td>
+    </tr>
+  </table>
+  <table>
+    <th class='mlb-th'>GB</th>
+    <tr data-class="mlb" data-foreach-standings="gb">
+      <td class='mlb-td' data-bind="standings | raw"></td>
+    </tr>
+  </table>
+</div>
 
-  <p class="more-info">Powered by BaseballReference</p>
-  <p class="updated-at" data-bind="updatedAtMessage"></p>
+<p class="mlb-info">Powered by BaseballReference</p>
+<p class="mlb-updated-at" data-bind="updatedAtMessage"></p>
